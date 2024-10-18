@@ -1,4 +1,4 @@
-module grpc_go
+module go_demo
 
 go 1.23.0
 

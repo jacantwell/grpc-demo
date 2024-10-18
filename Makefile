@@ -2,8 +2,8 @@
 
 # Variables
 PROTO_DIR := protobuffs
-PYTHON_OUT := grpc_python/pb
-GO_OUT := grpc_go/pb
+PYTHON_OUT := python_demo/pb
+GO_OUT := go_demo/pb
 
 # Poetry executable
 POETRY := poetry
@@ -19,7 +19,7 @@ all: python_protos go_protos
 
 # Generate Python proto files using Poetry
 python_protos: $(PROTO_FILES)
-	cd grpc_python && $(POETRY) run python -m grpc_tools.protoc \
+	cd python_demo && $(POETRY) install && $(POETRY) run python -m grpc_tools.protoc \
 		-I../$(PROTO_DIR) \
 		--python_out=pb \
 		--grpc_python_out=pb \
@@ -45,7 +45,7 @@ clean:
 
 # Install Python dependencies using Poetry
 python_install:
-	cd grpc_python && $(POETRY) install
+	cd python_demo && $(POETRY) install
 	@echo "Python dependencies installed."
 
 .PHONY: all python_protos go_protos clean python_install

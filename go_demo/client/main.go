@@ -2,9 +2,9 @@ package main
 
 import (
 	"context"
+	"go_demo/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"grpc_go/pb"
 	"log"
 	"time"
 )
